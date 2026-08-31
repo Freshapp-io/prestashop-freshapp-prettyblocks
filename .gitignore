@@ -1,0 +1,17 @@
+# — Artefacts système / éditeur —
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+*.swp
+*~
+.idea/
+.vscode/
+
+# — Dépendances —
+node_modules/
+
+# — Sauvegardes et archives —
+*.bak
+*.orig
+*.rej
+*.zip

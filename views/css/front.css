@@ -1,0 +1,95 @@
+/* =====================================================================
+   FreshApp PrettyBlocks — Front CSS
+   ===================================================================== */
+
+/* ---- Spacer ---- */
+.fa-spacer { display: block; box-sizing: border-box; }
+
+/* ---- Separator ---- */
+.fa-separator-wrap { box-sizing: border-box; }
+.fa-separator { box-sizing: border-box; }
+
+/* ---- Button ---- */
+.fa-button-wrap { box-sizing: border-box; }
+.fa-btn {
+  box-sizing: border-box;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  font-weight: 500;
+}
+
+/* ---- Google Maps ---- */
+.fa-googlemap-wrap { box-sizing: border-box; }
+.fa-googlemap { display: block; }
+
+/* ---- Video ---- */
+.fa-video-wrap { box-sizing: border-box; }
+.fa-video-responsive { overflow: hidden; }
+
+/* ---- Tabs ---- */
+.fa-tabs { box-sizing: border-box; }
+
+/* Nav */
+.fa-tabs-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #dee2e6;
+}
+.fa-tabs-align-center { justify-content: center; }
+.fa-tabs-align-right  { justify-content: flex-end; }
+.fa-tabs-align-justify .fa-tab-item { flex: 1; }
+
+.fa-tab-item { margin: 0; }
+
+.fa-tab-btn {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #495057;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color .15s, border-color .15s;
+}
+.fa-tab-btn:hover { color: #61C424; }
+.fa-tab-item.active .fa-tab-btn {
+  color: #61C424;
+  border-bottom-color: #61C424;
+}
+
+/* Panel */
+.fa-tab-panel { display: none; padding: 1rem 0; }
+.fa-tab-panel.active { display: block; }
+
+/* Vertical layout */
+.fa-tabs-vertical { display: flex; gap: 0; }
+.fa-tabs-vertical .fa-tabs-nav {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 2px solid #dee2e6;
+  min-width: 160px;
+}
+.fa-tabs-vertical .fa-tab-btn {
+  border-bottom: none;
+  border-right: 2px solid transparent;
+  margin-bottom: 0;
+  margin-right: -2px;
+  text-align: left;
+}
+.fa-tabs-vertical .fa-tab-item.active .fa-tab-btn {
+  border-right-color: #61C424;
+}
+.fa-tabs-vertical .fa-tabs-content { flex: 1; padding-left: 1rem; }
+
+/* ---- HTML Code ---- */
+.fa-htmlcode { box-sizing: border-box; overflow: auto; }

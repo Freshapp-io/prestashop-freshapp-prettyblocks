@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>freshapppretaprettyblocks</name>
+    <displayName><![CDATA[FreshApp Preta PrettyBlocks]]></displayName>
+    <version><![CDATA[1.0.0]]></version>
+    <description><![CDATA[Spacer, Separator, Button, Google Maps, Video, Tabs, HTML &mdash; new blocks for PrettyBlocks]]></description>
+    <author><![CDATA[FreshApp.io]]></author>
+    <tab><![CDATA[administration]]></tab>
+    <is_configurable>0</is_configurable>
+    <need_instance>1</need_instance>
+</module>

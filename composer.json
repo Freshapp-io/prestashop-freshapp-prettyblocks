@@ -1,0 +1,12 @@
+{
+    "name": "freshapp/pretaprettyblocks",
+    "description": "FreshApp extra blocks for PrettyBlocks",
+    "type": "prestashop-module",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "FreshAppPretaBlocks\\": "src/"
+        }
+    },
+    "require": {}
+}
