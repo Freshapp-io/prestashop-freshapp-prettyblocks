@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="Modules.Freshapppretaprettyblocks.Admin.xlf" source-language="en-US" target-language="en-US" datatype="plaintext">
+    <body>
+      <trans-unit id="a7f3e91a4b7eaebc6d0d56889c1f9f73">
+        <source>FreshApp Preta PrettyBlocks</source>
+        <target>FreshApp Preta PrettyBlocks</target>
+      </trans-unit>
+      <trans-unit id="d50702d20d9b4b711269973adcdbd375">
+        <source>Spacer, Separator, Button, Google Maps, Video, Tabs, HTML — new blocks for PrettyBlocks</source>
+        <target>Spacer, Separator, Button, Google Maps, Video, Tabs, HTML — new blocks for PrettyBlocks</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

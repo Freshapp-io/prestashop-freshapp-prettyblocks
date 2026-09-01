@@ -30,8 +30,12 @@ class Freshapppretaprettyblocks extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->trans('FreshApp Preta PrettyBlocks');
-        $this->description = $this->trans('Spacer, Separator, Button, Google Maps, Video, Tabs, HTML — new blocks for PrettyBlocks');
+        $this->displayName = $this->trans('FreshApp Preta PrettyBlocks', [], 'Modules.Freshapppretaprettyblocks.Admin');
+        $this->description = $this->trans(
+            'Spacer, Separator, Button, Google Maps, Video, Tabs, HTML — new blocks for PrettyBlocks',
+            [],
+            'Modules.Freshapppretaprettyblocks.Admin'
+        );
 
         $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
     }
