@@ -5,7 +5,7 @@
  *
  * @author    FreshApp.io
  * @copyright 2026 FreshApp.io
- * @license   Commercial
+ * @license   proprietary
  */
 
 use FreshAppPretaBlocks\Block\BlockLoader;
