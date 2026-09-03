@@ -1,8 +1,17 @@
 <?php
+/**
+ * FreshApp Preta PrettyBlocks.
+ *
+ * @author    FreshApp.io
+ * @copyright 2026 FreshApp.io
+ * @license   Proprietary - see LICENSE file
+ */
 
 namespace FreshAppPretaBlocks\Block;
 
-use PrestaShopLogger;
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
 
 final class BlockLoader
 {
@@ -23,10 +32,11 @@ final class BlockLoader
                 try {
                     $blocks[] = $class::getContent();
                 } catch (\Throwable $e) {
-                    PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
+                    \PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
                 }
             }
         }
+
         return $blocks;
     }
 
@@ -37,9 +47,10 @@ final class BlockLoader
             try {
                 return $class::beforeRendering($params);
             } catch (\Throwable $e) {
-                PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
+                \PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
             }
         }
+
         return [];
     }
 }

@@ -1,3 +1,9 @@
+{*
+ * FreshApp Preta PrettyBlocks
+ * @author FreshApp.io
+ * @copyright 2026 FreshApp.io
+ * @license Proprietary - see LICENSE file
+ *}
 {assign var="vid_id"       value=$block.settings.custom_id|default:''}
 {assign var="vid_class"    value=$block.settings.custom_class|default:''}
 {assign var="vid_source"   value=$block.settings.source|default:'youtube'}
@@ -31,8 +37,8 @@
 {/if}
 
 <div
-  {if $vid_id}id="{$vid_id|escape:'html'}"{/if}
-  class="fa-video-wrap {$block.classes}{if $block.settings.default.container} container{/if}{if $block.settings.default.force_full_width} _force-full{/if}{if $vid_class} {$vid_class|escape:'html'}{/if}"
+  {if $vid_id}id="{$vid_id|escape:'html':'UTF-8'}"{/if}
+  class="fa-video-wrap {$block.classes}{if $block.settings.default.container} container{/if}{if $block.settings.default.force_full_width} _force-full{/if}{if $vid_class} {$vid_class|escape:'html':'UTF-8'}{/if}"
   {$block.styles}
 >
   {if $vid_source == 'self'}
@@ -40,20 +46,20 @@
     {if $self_url}
     <video
       width="100%"
-      height="{$vid_height|escape:'html'}"
+      height="{$vid_height|escape:'html':'UTF-8'}"
       style="display:block;"
       {if $vid_autoplay}autoplay{/if}
       {if $vid_muted}muted{/if}
       {if $vid_loop}loop{/if}
       controls
     >
-      <source src="{$self_url|escape:'html'}">
+      <source src="{$self_url|escape:'html':'UTF-8'}">
     </video>
     {/if}
   {else}
-    <div class="fa-video-responsive" style="position:relative; width:100%; height:{$vid_height|escape:'html'};">
+    <div class="fa-video-responsive" style="position:relative; width:100%; height:{$vid_height|escape:'html':'UTF-8'};">
       <iframe
-        src="{$vid_embed|escape:'html'}"
+        src="{$vid_embed|escape:'html':'UTF-8'}"
         style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
         allowfullscreen
         allow="autoplay; encrypted-media"

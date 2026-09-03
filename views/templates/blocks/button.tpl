@@ -1,3 +1,9 @@
+{*
+ * FreshApp Preta PrettyBlocks
+ * @author FreshApp.io
+ * @copyright 2026 FreshApp.io
+ * @license Proprietary - see LICENSE file
+ *}
 {assign var="btn_id"    value=$block.settings.custom_id|default:''}
 {assign var="btn_class" value=$block.settings.custom_class|default:''}
 {assign var="btn_size"  value=$block.settings.size|default:'md'}
@@ -22,24 +28,24 @@
     {/if}
   }
   .freshapp-btn-{$btn_uid} {
-    background-color: {$block.settings.bg_color|default:'#61C424'|escape:'html'};
-    color: {$block.settings.text_color|default:'#ffffff'|escape:'html'};
-    border: {$block.settings.border_width|default:'0px'|escape:'html'} solid {$block.settings.border_color|default:'#61C424'|escape:'html'};
-    border-radius: {$block.settings.border_radius|default:'4px'|escape:'html'};
+    background-color: {$block.settings.bg_color|default:'#61C424'|escape:'html':'UTF-8'};
+    color: {$block.settings.text_color|default:'#ffffff'|escape:'html':'UTF-8'};
+    border: {$block.settings.border_width|default:'0px'|escape:'html':'UTF-8'} solid {$block.settings.border_color|default:'#61C424'|escape:'html':'UTF-8'};
+    border-radius: {$block.settings.border_radius|default:'4px'|escape:'html':'UTF-8'};
     text-decoration: none;
     transition: background-color .2s, color .2s, border-color .2s;
     cursor: pointer;
     {if $btn_align == 'stretch'}
     display: block;
     width: 100%;
-    text-align: {$btn_text_stretch_align|escape:'html'};
+    text-align: {$btn_text_stretch_align|escape:'html':'UTF-8'};
     {/if}
   }
   .freshapp-btn-{$btn_uid}:hover,
   .freshapp-btn-{$btn_uid}:focus {
-    background-color: {$block.settings.bg_color_hover|default:'#4da01d'|escape:'html'};
-    color: {$block.settings.text_color_hover|default:'#ffffff'|escape:'html'};
-    border-color: {$block.settings.border_color_hover|default:'#4da01d'|escape:'html'};
+    background-color: {$block.settings.bg_color_hover|default:'#4da01d'|escape:'html':'UTF-8'};
+    color: {$block.settings.text_color_hover|default:'#ffffff'|escape:'html':'UTF-8'};
+    border-color: {$block.settings.border_color_hover|default:'#4da01d'|escape:'html':'UTF-8'};
     text-decoration: none;
   }
   .freshapp-btn-size-sm { font-size: 0.8rem; padding: 6px 14px; }
@@ -52,12 +58,12 @@
   {$block.styles}
 >
   <a
-    {if $btn_id}id="{$btn_id|escape:'html'}"{/if}
-    class="freshapp-btn freshapp-btn-{$btn_uid} freshapp-btn-size-{$btn_size|escape:'html'}{if $btn_class} {$btn_class|escape:'html'}{/if}"
-    href="{$btn_url|escape:'html'}"
-    target="{$block.settings.target|default:'_self'|escape:'html'}"
+    {if $btn_id}id="{$btn_id|escape:'html':'UTF-8'}"{/if}
+    class="freshapp-btn freshapp-btn-{$btn_uid} freshapp-btn-size-{$btn_size|escape:'html':'UTF-8'}{if $btn_class} {$btn_class|escape:'html':'UTF-8'}{/if}"
+    href="{$btn_url|escape:'html':'UTF-8'}"
+    target="{$block.settings.target|default:'_self'|escape:'html':'UTF-8'}"
     {if $block.settings.nofollow}rel="nofollow"{/if}
   >
-    {$btn_label|escape:'html'}
+    {$btn_label|escape:'html':'UTF-8'}
   </a>
 </div>

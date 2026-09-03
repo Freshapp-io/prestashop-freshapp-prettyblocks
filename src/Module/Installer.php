@@ -1,14 +1,23 @@
 <?php
+/**
+ * FreshApp Preta PrettyBlocks.
+ *
+ * @author    FreshApp.io
+ * @copyright 2026 FreshApp.io
+ * @license   Proprietary - see LICENSE file
+ */
 
 namespace FreshAppPretaBlocks\Module;
 
-use Freshapppretaprettyblocks;
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
 
 class Installer
 {
     protected $module;
 
-    public function __construct(Freshapppretaprettyblocks $module)
+    public function __construct(\Freshapppretaprettyblocks $module)
     {
         $this->module = $module;
     }

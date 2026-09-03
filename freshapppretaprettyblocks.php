@@ -1,7 +1,7 @@
 <?php
 /**
  * FreshApp Preta PrettyBlocks
- * Adds 7 new blocks to PrettyBlocks: Spacer, Separator, Button, Google Maps, Video, Tabs, HTML Code
+ * Adds 7 new blocks to PrettyBlocks: Spacer, Separator, Button, Google Maps, Video, Tabs, HTML Code.
  *
  * @author    FreshApp.io
  * @copyright 2026 FreshApp.io
@@ -22,10 +22,10 @@ class Freshapppretaprettyblocks extends Module
 {
     public function __construct()
     {
-        $this->name         = 'freshapppretaprettyblocks';
-        $this->tab          = 'administration';
-        $this->version      = '1.0.0';
-        $this->author       = 'FreshApp.io';
+        $this->name = 'freshapppretaprettyblocks';
+        $this->tab = 'administration';
+        $this->version = '1.0.0';
+        $this->author = 'FreshApp.io';
         $this->dependencies = ['prettyblocks'];
 
         parent::__construct();
@@ -34,7 +34,7 @@ class Freshapppretaprettyblocks extends Module
         $this->description = $this->trans(
             'Spacer, Separator, Button, Google Maps, Video, Tabs, HTML — new blocks for PrettyBlocks',
             [],
-            'Modules.Freshapppretaprettyblocks.Admin'
+            'Modules.Freshapppretaprettyblocks.Admin',
         );
 
         $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
@@ -50,10 +50,10 @@ class Freshapppretaprettyblocks extends Module
             } else {
                 return BlockLoader::getBlockBeforeRendering(
                     str_replace('hookBeforeRendering', '', $name),
-                    $arguments[0] ?? null
+                    $arguments[0] ?? null,
                 );
             }
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
         }
     }

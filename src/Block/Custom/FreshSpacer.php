@@ -1,41 +1,52 @@
 <?php
+/**
+ * FreshApp Preta PrettyBlocks.
+ *
+ * @author    FreshApp.io
+ * @copyright 2026 FreshApp.io
+ * @license   Proprietary - see LICENSE file
+ */
 
 namespace FreshAppPretaBlocks\Block\Custom;
+
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
 
 final class FreshSpacer
 {
     public static function getContent(): array
     {
         return [
-            'name'        => 'Spacer',
+            'name' => 'Spacer',
             'description' => 'Ajoute un espace vertical configurable',
-            'code'        => 'freshapp_spacer',
-            'tab'         => 'general',
-            'icon'        => 'ArrowsUpDownIcon',
+            'code' => 'freshapp_spacer',
+            'tab' => 'general',
+            'icon' => 'ArrowsUpDownIcon',
             'need_reload' => false,
-            'templates'   => [
+            'templates' => [
                 'default' => 'module:freshapppretaprettyblocks/views/templates/blocks/spacer.tpl',
             ],
             'config' => [
                 'fields' => [
                     'height' => [
-                        'type'    => 'text',
-                        'label'   => 'Hauteur (ex: 40px, 3em, 10vh)',
+                        'type' => 'text',
+                        'label' => 'Hauteur (ex: 40px, 3em, 10vh)',
                         'default' => '40px',
                     ],
                     'background_color' => [
-                        'type'    => 'color',
-                        'label'   => 'Couleur de fond',
+                        'type' => 'color',
+                        'label' => 'Couleur de fond',
                         'default' => 'transparent',
                     ],
                     'custom_class' => [
-                        'type'    => 'text',
-                        'label'   => 'Classe CSS personnalisée',
+                        'type' => 'text',
+                        'label' => 'Classe CSS personnalisée',
                         'default' => '',
                     ],
                     'custom_id' => [
-                        'type'    => 'text',
-                        'label'   => 'ID HTML',
+                        'type' => 'text',
+                        'label' => 'ID HTML',
                         'default' => '',
                     ],
                 ],

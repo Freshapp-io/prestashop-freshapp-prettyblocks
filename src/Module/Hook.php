@@ -1,32 +1,42 @@
 <?php
+/**
+ * FreshApp Preta PrettyBlocks.
+ *
+ * @author    FreshApp.io
+ * @copyright 2026 FreshApp.io
+ * @license   Proprietary - see LICENSE file
+ */
 
 namespace FreshAppPretaBlocks\Module;
 
-use Context;
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
 use FreshAppPretaBlocks\Block\BlockLoader;
-use Freshapppretaprettyblocks;
-use PrestaShopLogger;
 
 class Hook
 {
     private static ?self $instance = null;
 
     private string $hook_name;
-    private Context $context;
+    private \Context $context;
     private array $params;
-    private Freshapppretaprettyblocks $module;
+    private \Freshapppretaprettyblocks $module;
 
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 
-    public static function execute(string $hook_name, Freshapppretaprettyblocks $module, array $params): mixed
+    public static function execute(string $hook_name, \Freshapppretaprettyblocks $module, array $params): mixed
     {
         if (is_null(self::$instance)) {
             self::$instance = new self();
         }
         self::$instance->hook_name = $hook_name;
-        self::$instance->module    = $module;
-        self::$instance->params    = $params;
-        self::$instance->context   = Context::getContext();
+        self::$instance->module = $module;
+        self::$instance->params = $params;
+        self::$instance->context = \Context::getContext();
 
         return self::$instance->$hook_name($params);
     }
@@ -36,12 +46,12 @@ class Hook
         $this->context->controller->registerStylesheet(
             'freshapppretaprettyblocks-front',
             'modules/freshapppretaprettyblocks/views/css/front.css',
-            ['media' => 'all', 'priority' => 150]
+            ['media' => 'all', 'priority' => 150],
         );
         $this->context->controller->registerJavascript(
             'freshapppretaprettyblocks-front',
             'modules/freshapppretaprettyblocks/views/js/front.js',
-            ['position' => 'bottom', 'priority' => 150]
+            ['position' => 'bottom', 'priority' => 150],
         );
     }
 
@@ -50,7 +60,8 @@ class Hook
         try {
             return BlockLoader::getBlocks();
         } catch (\Throwable $e) {
-            PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
+            \PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
+
             return [];
         }
     }
