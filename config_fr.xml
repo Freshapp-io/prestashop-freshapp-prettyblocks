@@ -3,7 +3,7 @@
     <name>freshapppretaprettyblocks</name>
     <displayName><![CDATA[FreshApp Preta PrettyBlocks]]></displayName>
     <version><![CDATA[1.0.0]]></version>
-    <description><![CDATA[Espaceur, s&eacute;parateur, bouton, Google Maps, vid&eacute;o, onglets, HTML &mdash; nouveaux blocs pour PrettyBlocks]]></description>
+    <description><![CDATA[Spacer, Separator, Button, Google Maps, Video, Tabs, HTML: new blocks for PrettyBlocks]]></description>
     <author><![CDATA[FreshApp.io]]></author>
     <tab><![CDATA[administration]]></tab>
     <is_configurable>0</is_configurable>

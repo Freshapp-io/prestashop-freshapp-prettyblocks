@@ -21,7 +21,7 @@
     style="border:0; display:block;"
     loading="lazy"
     referrerpolicy="no-referrer-when-downgrade"
-    src="https://maps.google.com/maps?q={$gm_address|urlencode}&z={$gm_zoom|intval}&output=embed&hl={$language.iso_code|default:'fr'}"
+    src="https://maps.google.com/maps?q={$gm_address|urlencode}&z={$gm_zoom|intval|escape:'html':'UTF-8'}&output=embed&hl={$language.iso_code|default:'fr'}"
     allowfullscreen
   ></iframe>
 </div>

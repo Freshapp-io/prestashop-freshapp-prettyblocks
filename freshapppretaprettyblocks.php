@@ -32,7 +32,7 @@ class Freshapppretaprettyblocks extends Module
 
         $this->displayName = $this->trans('FreshApp Preta PrettyBlocks', [], 'Modules.Freshapppretaprettyblocks.Admin');
         $this->description = $this->trans(
-            'Spacer, Separator, Button, Google Maps, Video, Tabs, HTML — new blocks for PrettyBlocks',
+            'Spacer, Separator, Button, Google Maps, Video, Tabs, HTML: new blocks for PrettyBlocks',
             [],
             'Modules.Freshapppretaprettyblocks.Admin',
         );
