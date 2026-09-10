@@ -37,7 +37,7 @@ class Freshapppretaprettyblocks extends Module
             'Modules.Freshapppretaprettyblocks.Admin',
         );
 
-        $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
+        $this->ps_versions_compliancy = ['min' => '1.7', 'max' => '9.99.99'];
     }
 
     public function __call(string $name, array $arguments)

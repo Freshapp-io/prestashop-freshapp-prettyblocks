@@ -32,7 +32,7 @@ final class FreshHtmlCode
                     'html_content' => [
                         'type' => 'textarea',
                         'label' => 'Code HTML',
-                        'default' => '<p>Votre HTML ici</p>',
+                        'default' => 'Votre HTML ici',
                     ],
                     'width' => [
                         'type' => 'text',

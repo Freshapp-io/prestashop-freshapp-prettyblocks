@@ -74,7 +74,7 @@ final class FreshTabs
                     'tab_content' => [
                         'type' => 'editor',
                         'label' => 'Contenu',
-                        'default' => '<p>Contenu de l\'onglet</p>',
+                        'default' => 'Contenu de l\'onglet',
                     ],
                 ],
             ],
