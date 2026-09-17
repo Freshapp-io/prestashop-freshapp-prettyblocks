@@ -4,6 +4,10 @@ Une section par version, la plus récente en haut. Chaque puce est une ligne aut
 formulée côté marchand : le bloc d'une version se colle tel quel dans le champ
 « changelog » de freshappprestadownload (une ligne par changement, sans le tiret).
 
+## 1.3.1 — 2026-09-17
+
+- Bloc « Modules » de la page d'accueil : prix affichés avec leur mention TTC ou HT, et le prix dans l'autre mode en dessous.
+
 ## 1.3.0 — 2026-09-17
 
 - Compatibilité étendue : PrestaShop 1.7.8, 8 et 9.

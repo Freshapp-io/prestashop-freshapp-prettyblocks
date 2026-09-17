@@ -24,7 +24,7 @@ class Freshappprettyblocks extends Module
     {
         $this->name = 'freshappprettyblocks';
         $this->tab = 'administration';
-        $this->version = '1.3.0';
+        $this->version = '1.3.1';
         $this->author = 'FreshApp.io';
         $this->dependencies = ['prettyblocks'];
 

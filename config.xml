@@ -2,7 +2,7 @@
 <module>
     <name>freshappprettyblocks</name>
     <displayName><![CDATA[FreshApp PrettyBlocks]]></displayName>
-    <version><![CDATA[1.3.0]]></version>
+    <version><![CDATA[1.3.1]]></version>
     <description><![CDATA[Spacer, Separator, Button, Google Maps, Video, Tabs, HTML: new blocks for PrettyBlocks]]></description>
     <author><![CDATA[FreshApp.io]]></author>
     <tab><![CDATA[administration]]></tab>

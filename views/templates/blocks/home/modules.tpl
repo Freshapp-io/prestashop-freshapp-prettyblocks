@@ -24,9 +24,14 @@
             {if $fa_mod.excerpt}<p class="fa-home-card__text">{$fa_mod.excerpt|escape:'html':'UTF-8'}</p>{/if}
             <div class="fa-home-module__foot">
               {if $fa_mod.compat}<span class="fa-home-module__compat">{$fa_mod.compat|escape:'html':'UTF-8'}</span>{/if}
-              <span class="fa-home-module__price{if $fa_mod.is_free} fa-home-module__price--free{/if}">
-                {if $fa_mod.is_free}{$block.settings.free_label|escape:'html':'UTF-8'}{else}{$fa_mod.price|escape:'html':'UTF-8'}{/if}
-              </span>
+              {if $fa_mod.is_free}
+                <span class="fa-home-module__price fa-home-module__price--free">{$block.settings.free_label|escape:'html':'UTF-8'}</span>
+              {else}
+                <span class="fa-home-module__prices">
+                  <span class="fa-home-module__price">{$fa_mod.price|escape:'html':'UTF-8'} <span class="fa-home-module__tax">{$fa_mod.price_label|escape:'html':'UTF-8'}</span></span>
+                  <span class="fa-home-module__price-secondary">{$fa_mod.price_secondary|escape:'html':'UTF-8'} {$fa_mod.price_secondary_label|escape:'html':'UTF-8'}</span>
+                </span>
+              {/if}
             </div>
           </article>
         </li>

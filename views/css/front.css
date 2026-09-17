@@ -206,6 +206,9 @@ a.fa-home-card:hover, .fa-home-module:hover { box-shadow: 0 10px 24px -14px rgba
 .fa-home-module__compat { font-size: .75rem; color: #5b7084; }
 .fa-home-module__price { font-weight: 700; color: var(--fa-home-ink); white-space: nowrap; }
 .fa-home-module__price--free { color: var(--fa-home-green-700); }
+.fa-home-module__prices { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.25; }
+.fa-home-module__tax { font-size: .75rem; font-weight: 400; color: #5b7084; }
+.fa-home-module__price-secondary { font-size: .75rem; color: #5b7084; white-space: nowrap; }
 
 /* Documentation — second bandeau sombre, comme les sections bleues de crawl-saas */
 .fa-home-docs .fa-home-section__title { color: #fff; }

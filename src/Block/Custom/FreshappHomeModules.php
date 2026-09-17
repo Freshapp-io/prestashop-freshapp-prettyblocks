@@ -81,6 +81,11 @@ final class FreshappHomeModules
         $idCompat = self::idCaracteristiqueCompat();
         $locale = \Tools::getContextLocale($context);
         $devise = $context->currency->iso_code;
+        // Affichage du groupe client : TTC par défaut, HT pour un groupe réglé ainsi (B2B).
+        $affichageHt = (bool) \Product::getTaxCalculationMethod((int) $context->customer->id);
+        $traducteur = $context->getTranslator();
+        $libelleTtc = $traducteur->trans('Tax included', [], 'Shop.Theme.Global');
+        $libelleHt = $traducteur->trans('Tax excluded', [], 'Shop.Theme.Global');
 
         $modules = [];
         foreach ($idsProduits as $idProduct) {
@@ -89,7 +94,8 @@ final class FreshappHomeModules
                 continue;
             }
 
-            $prix = (float) \Product::getPriceStatic($idProduct, true);
+            $prixTtc = (float) \Product::getPriceStatic($idProduct, true);
+            $prixHt = (float) \Product::getPriceStatic($idProduct, false);
             $couverture = \Product::getCover($idProduct);
 
             $modules[] = [
@@ -102,8 +108,13 @@ final class FreshappHomeModules
                 ),
                 'excerpt' => Extrait::depuisHtml((string) $produit->description_short, 120),
                 'compat' => $idCompat ? self::valeurCaracteristique($idProduct, $idCompat, $idLang) : '',
-                'is_free' => $prix <= 0.0,
-                'price' => $prix > 0.0 ? $locale->formatPrice($prix, $devise) : '',
+                'is_free' => $prixTtc <= 0.0,
+                // Prix principal selon l'affichage du client, l'autre mode en dessous : sans
+                // mention, un visiteur ne peut pas savoir si le prix affiché est HT ou TTC.
+                'price' => $prixTtc > 0.0 ? $locale->formatPrice($affichageHt ? $prixHt : $prixTtc, $devise) : '',
+                'price_label' => $affichageHt ? $libelleHt : $libelleTtc,
+                'price_secondary' => $prixTtc > 0.0 ? $locale->formatPrice($affichageHt ? $prixTtc : $prixHt, $devise) : '',
+                'price_secondary_label' => $affichageHt ? $libelleTtc : $libelleHt,
             ];
         }
 
