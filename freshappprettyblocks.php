@@ -1,6 +1,6 @@
 <?php
 /**
- * FreshApp Preta PrettyBlocks
+ * FreshApp PrettyBlocks
  * Adds 7 new blocks to PrettyBlocks: Spacer, Separator, Button, Google Maps, Video, Tabs, HTML Code.
  *
  * @author    FreshApp.io
@@ -8,9 +8,9 @@
  * @license   proprietary
  */
 
-use FreshAppPretaBlocks\Block\BlockLoader;
-use FreshAppPretaBlocks\Module\Hook as FreshAppHook;
-use FreshAppPretaBlocks\Module\Installer;
+use FreshAppPrettyBlocks\Block\BlockLoader;
+use FreshAppPrettyBlocks\Module\Hook as FreshAppHook;
+use FreshAppPrettyBlocks\Module\Installer;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -18,33 +18,33 @@ if (!defined('_PS_VERSION_')) {
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-class Freshapppretaprettyblocks extends Module
+class Freshappprettyblocks extends Module
 {
     public function __construct()
     {
-        $this->name = 'freshapppretaprettyblocks';
+        $this->name = 'freshappprettyblocks';
         $this->tab = 'administration';
-        $this->version = '1.0.0';
+        $this->version = '1.3.0';
         $this->author = 'FreshApp.io';
         $this->dependencies = ['prettyblocks'];
 
         parent::__construct();
 
-        $this->displayName = $this->trans('FreshApp Preta PrettyBlocks', [], 'Modules.Freshapppretaprettyblocks.Admin');
+        $this->displayName = $this->trans('FreshApp PrettyBlocks', [], 'Modules.Freshappprettyblocks.Admin');
         $this->description = $this->trans(
             'Spacer, Separator, Button, Google Maps, Video, Tabs, HTML: new blocks for PrettyBlocks',
             [],
-            'Modules.Freshapppretaprettyblocks.Admin',
+            'Modules.Freshappprettyblocks.Admin',
         );
 
-        $this->ps_versions_compliancy = ['min' => '1.7', 'max' => '9.99.99'];
+        $this->ps_versions_compliancy = ['min' => '1.7.8.0', 'max' => '9.99.99'];
     }
 
     public function __call(string $name, array $arguments)
     {
         try {
-            if (method_exists(FreshAppHook::class, $name) && !str_contains($name, 'hookBeforeRendering')) {
-                if (str_starts_with($name, 'hook')) {
+            if (method_exists(FreshAppHook::class, $name) && false === strpos($name, 'hookBeforeRendering')) {
+                if (0 === strpos($name, 'hook')) {
                     return FreshAppHook::execute($name, $this, $arguments[0] ?? []);
                 }
             } else {
@@ -54,7 +54,7 @@ class Freshapppretaprettyblocks extends Module
                 );
             }
         } catch (Throwable $e) {
-            PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
+            PrestaShopLogger::addLog('[freshappprettyblocks] ' . $e->getMessage());
         }
     }
 

@@ -1,13 +1,13 @@
 <?php
 /**
- * FreshApp Preta PrettyBlocks.
+ * FreshApp PrettyBlocks.
  *
  * @author    FreshApp.io
  * @copyright 2026 FreshApp.io
  * @license   Proprietary - see LICENSE file
  */
 
-namespace FreshAppPretaBlocks\Block;
+namespace FreshAppPrettyBlocks\Block;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -27,12 +27,12 @@ final class BlockLoader
             if (!preg_match('/^[A-Z][a-zA-Z0-9]+\.php$/', $file)) {
                 continue;
             }
-            $class = 'FreshAppPretaBlocks\\Block\\Custom\\' . str_replace('.php', '', $file);
+            $class = 'FreshAppPrettyBlocks\\Block\\Custom\\' . str_replace('.php', '', $file);
             if (class_exists($class) && method_exists($class, 'getContent')) {
                 try {
                     $blocks[] = $class::getContent();
                 } catch (\Throwable $e) {
-                    \PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
+                    \PrestaShopLogger::addLog('[freshappprettyblocks] ' . $e->getMessage());
                 }
             }
         }
@@ -40,17 +40,71 @@ final class BlockLoader
         return $blocks;
     }
 
+    /**
+     * Données dynamiques d'un bloc, juste avant son rendu.
+     *
+     * PrestaShop appelle `hookBeforeRendering` + le code du bloc passé en camelCase
+     * (`freshapp_home_modules` -> `freshappHomeModules`) : la casse ne correspond donc pas
+     * au nom du fichier de classe (`FreshappHomeModules.php`). PHP résout les classes sans
+     * tenir compte de la casse, mais l'autoloader, lui, cherche un fichier et le système de
+     * fichiers est sensible à la casse. On retrouve donc la classe à partir des fichiers
+     * présents plutôt que du nom reçu.
+     */
     public static function getBlockBeforeRendering(string $blockName, ?array $params): array
     {
-        $class = 'FreshAppPretaBlocks\\Block\\Custom\\' . str_replace('_', '', $blockName);
-        if (class_exists($class) && method_exists($class, 'beforeRendering')) {
+        $class = self::resolveClass(str_replace('_', '', $blockName));
+        if (null !== $class && method_exists($class, 'beforeRendering')) {
             try {
                 return $class::beforeRendering($params);
             } catch (\Throwable $e) {
-                \PrestaShopLogger::addLog('[freshapppretaprettyblocks] ' . $e->getMessage());
+                \PrestaShopLogger::addLog('[freshappprettyblocks] ' . $e->getMessage());
             }
         }
 
         return [];
+    }
+
+    /**
+     * Codes de hook `beforeRendering…` des blocs qui en déclarent un.
+     *
+     * @return string[]
+     */
+    public static function getBeforeRenderingHooks(): array
+    {
+        $hooks = [];
+        foreach (self::classes() as $class) {
+            if (method_exists($class, 'beforeRendering') && method_exists($class, 'getContent')) {
+                $hooks[] = 'beforeRendering' . \Tools::toCamelCase($class::getContent()['code']);
+            }
+        }
+
+        return $hooks;
+    }
+
+    private static function resolveClass(string $shortName): ?string
+    {
+        foreach (self::classes() as $class) {
+            if (0 === strcasecmp(substr($class, strrpos($class, '\\') + 1), $shortName)) {
+                return $class;
+            }
+        }
+
+        return null;
+    }
+
+    /** @return string[] */
+    private static function classes(): array
+    {
+        $classes = [];
+        foreach (array_diff((array) scandir(self::BLOCK_DIR), ['.', '..']) as $file) {
+            if (preg_match('/^[A-Z][a-zA-Z0-9]+\.php$/', (string) $file)) {
+                $class = 'FreshAppPrettyBlocks\\Block\\Custom\\' . substr((string) $file, 0, -4);
+                if (class_exists($class)) {
+                    $classes[] = $class;
+                }
+            }
+        }
+
+        return $classes;
     }
 }

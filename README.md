@@ -1,8 +1,8 @@
-# FreshApp Preta PrettyBlocks
+# FreshApp PrettyBlocks
 
 Blocs supplémentaires pour le module **PrettyBlocks**.
 
-- **Nom technique** : `freshapppretaprettyblocks`
+- **Nom technique** : `freshappprettyblocks`
 - **Version** : 1.0.0
 - **Auteur** : FreshApp.io
 - **Dépendance** : le module `prettyblocks` doit être installé
@@ -23,7 +23,7 @@ Les blocs s'enregistrent auprès de PrettyBlocks via le hook `ActionRegisterBloc
 
 ## Architecture
 
-Code namespacé `FreshAppPretaBlocks\` sous `src/`, chargé par un autoloader PSR-4
+Code namespacé `FreshAppPrettyBlocks\` sous `src/`, chargé par un autoloader PSR-4
 minimal dans `vendor/autoload.php`.
 
 **Ce fichier `vendor/autoload.php` est du code source écrit à la main**, pas une

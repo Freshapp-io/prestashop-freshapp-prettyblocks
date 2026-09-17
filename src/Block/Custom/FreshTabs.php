@@ -1,13 +1,13 @@
 <?php
 /**
- * FreshApp Preta PrettyBlocks.
+ * FreshApp PrettyBlocks.
  *
  * @author    FreshApp.io
  * @copyright 2026 FreshApp.io
  * @license   Proprietary - see LICENSE file
  */
 
-namespace FreshAppPretaBlocks\Block\Custom;
+namespace FreshAppPrettyBlocks\Block\Custom;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -26,7 +26,7 @@ final class FreshTabs
             'need_reload' => false,
             'insert_default_values' => true,
             'templates' => [
-                'default' => 'module:freshapppretaprettyblocks/views/templates/blocks/tabs.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/blocks/tabs.tpl',
             ],
             'config' => [
                 'fields' => [

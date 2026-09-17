@@ -1,13 +1,13 @@
 <?php
 /**
- * FreshApp Preta PrettyBlocks.
+ * FreshApp PrettyBlocks.
  *
  * @author    FreshApp.io
  * @copyright 2026 FreshApp.io
  * @license   Proprietary - see LICENSE file
  */
 
-namespace FreshAppPretaBlocks\Block\Custom;
+namespace FreshAppPrettyBlocks\Block\Custom;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -25,7 +25,7 @@ final class FreshHtmlCode
             'icon' => 'CodeBracketIcon',
             'need_reload' => true,
             'templates' => [
-                'default' => 'module:freshapppretaprettyblocks/views/templates/blocks/htmlcode.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/blocks/htmlcode.tpl',
             ],
             'config' => [
                 'fields' => [

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
-    <name>freshapppretaprettyblocks</name>
-    <displayName><![CDATA[FreshApp Preta PrettyBlocks]]></displayName>
-    <version><![CDATA[1.0.0]]></version>
-    <description><![CDATA[Spacer, Separator, Button, Google Maps, Video, Tabs, HTML: new blocks for PrettyBlocks]]></description>
+    <name>freshappprettyblocks</name>
+    <displayName><![CDATA[FreshApp PrettyBlocks]]></displayName>
+    <version><![CDATA[1.3.0]]></version>
+    <description><![CDATA[Espaceur, s&eacute;parateur, bouton, Google Maps, vid&eacute;o, onglets, HTML &mdash; nouveaux blocs pour PrettyBlocks]]></description>
     <author><![CDATA[FreshApp.io]]></author>
     <tab><![CDATA[administration]]></tab>
     <is_configurable>0</is_configurable>

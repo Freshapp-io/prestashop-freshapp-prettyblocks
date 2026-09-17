@@ -1,13 +1,13 @@
 <?php
 /**
- * FreshApp Preta PrettyBlocks.
+ * FreshApp PrettyBlocks.
  *
  * @author    FreshApp.io
  * @copyright 2026 FreshApp.io
  * @license   Proprietary - see LICENSE file
  */
 
-namespace FreshAppPretaBlocks\Block\Custom;
+namespace FreshAppPrettyBlocks\Block\Custom;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -25,7 +25,7 @@ final class FreshVideo
             'icon' => 'VideoCameraIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshapppretaprettyblocks/views/templates/blocks/video.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/blocks/video.tpl',
             ],
             'config' => [
                 'fields' => [
@@ -49,7 +49,7 @@ final class FreshVideo
                     'self_hosted_file' => [
                         'type' => 'fileupload',
                         'label' => 'Fichier vidéo (auto-hébergée)',
-                        'path' => '$/modules/freshapppretaprettyblocks/views/videos/',
+                        'path' => '$/modules/freshappprettyblocks/views/videos/',
                         'default' => ['url' => ''],
                     ],
                     'autoplay' => [
