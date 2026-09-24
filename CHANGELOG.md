@@ -4,6 +4,13 @@ Une section par version, la plus récente en haut. Chaque puce est une ligne aut
 formulée côté marchand : le bloc d'une version se colle tel quel dans le champ
 « changelog » de freshappprestadownload (une ligne par changement, sans le tiret).
 
+## 1.3.2 — 2026-09-24
+
+- Bloc « Code HTML » : il ne s'affichait pas du tout (erreur dans son gabarit) ; il fonctionne maintenant.
+- Bloc « Vidéo » : la lecture automatique, la sourdine et la boucle sont désormais toutes prises en compte (seul le premier réglage l'était).
+- Le texte riche des blocs « Texte » et « Onglets » est nettoyé comme celui des pages CMS.
+- Rangement interne : points relevés par le validateur PrestaShop Addons.
+
 ## 1.3.1 — 2026-09-17
 
 - Bloc « Modules » de la page d'accueil : prix affichés avec leur mention TTC ou HT, et le prix dans l'autre mode en dessous.

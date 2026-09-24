@@ -12,8 +12,8 @@
 
 <div
   {if $tabs_id}id="{$tabs_id|escape:'html':'UTF-8'}"{/if}
-  class="fa-tabs fa-tabs-{$tabs_orient|escape:'html':'UTF-8'} {$block.classes}{if $block.settings.default.container} container{/if}{if $block.settings.default.force_full_width} _force-full{/if}{if $tabs_class} {$tabs_class|escape:'html':'UTF-8'}{/if}"
-  {$block.styles}
+  class="fa-tabs fa-tabs-{$tabs_orient|escape:'html':'UTF-8'} {$block.classes|escape:'html':'UTF-8'}{if $block.settings.default.container} container{/if}{if $block.settings.default.force_full_width} _force-full{/if}{if $tabs_class} {$tabs_class|escape:'html':'UTF-8'}{/if}"
+  {$block.styles|escape:'html':'UTF-8'}
 >
   {if $block.states}
     <ul class="fa-tabs-nav fa-tabs-align-{$tabs_align|escape:'html':'UTF-8'}" role="tablist">
@@ -21,10 +21,10 @@
         <li class="fa-tab-item{if $smarty.foreach.tabloop.first} active{/if}" role="presentation">
           <button
             class="fa-tab-btn"
-            data-target="#{$tabs_uid|escape:'html':'UTF-8'}-panel-{$smarty.foreach.tabloop.index}"
+            data-target="#{$tabs_uid|escape:'html':'UTF-8'}-panel-{$smarty.foreach.tabloop.index|intval}"
             role="tab"
             aria-selected="{if $smarty.foreach.tabloop.first}true{else}false{/if}"
-            aria-controls="{$tabs_uid|escape:'html':'UTF-8'}-panel-{$smarty.foreach.tabloop.index}"
+            aria-controls="{$tabs_uid|escape:'html':'UTF-8'}-panel-{$smarty.foreach.tabloop.index|intval}"
           >
             {$tab.tab_title|default:'Onglet'|escape:'html':'UTF-8'}
           </button>
@@ -35,11 +35,11 @@
       {foreach from=$block.states item=tab name=tabloop}
         <div
           class="fa-tab-panel{if $smarty.foreach.tabloop.first} active{/if}"
-          id="{$tabs_uid|escape:'html':'UTF-8'}-panel-{$smarty.foreach.tabloop.index}"
+          id="{$tabs_uid|escape:'html':'UTF-8'}-panel-{$smarty.foreach.tabloop.index|intval}"
           role="tabpanel"
           {if !$smarty.foreach.tabloop.first}hidden{/if}
         >
-          {$tab.tab_content|default:'' nofilter}
+          {fa_pb_html html=$tab.tab_content|default:'' purify=true}
         </div>
       {/foreach}
     </div>

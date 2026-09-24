@@ -25,7 +25,7 @@ final class FreshButton
             'icon' => 'CursorArrowRaysIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/button.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/button.tpl',
             ],
             'config' => [
                 'fields' => [

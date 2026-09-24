@@ -35,7 +35,7 @@ final class FreshappHomeCategories
             'icon' => 'Squares2X2Icon',
             'need_reload' => true,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/home/categories.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/home/categories.tpl',
             ],
             'config' => [
                 'fields' => [
@@ -57,17 +57,16 @@ final class FreshappHomeCategories
         ];
     }
 
-    public static function beforeRendering(?array $params): array
+    public static function beforeRendering(?array $params, \Context $context): array
     {
         $settings = (array) ($params['settings'] ?? []);
-        $context = \Context::getContext();
         $idLang = (int) $context->language->id;
         $idParent = (int) ($settings['parent_id'] ?? 3);
         $exclusions = array_map('intval', array_filter(explode(',', (string) ($settings['exclude_ids'] ?? ''))));
         $longueur = max(40, (int) ($settings['excerpt_length'] ?? 130));
 
         $categories = [];
-        foreach ((array) \Category::getChildren($idParent, $idLang, true, (int) $context->shop->id) as $ligne) {
+        foreach ((array) \Category::getChildren($idParent, $idLang, true) as $ligne) {
             $idCategory = (int) $ligne['id_category'];
             if (in_array($idCategory, $exclusions, true)) {
                 continue;

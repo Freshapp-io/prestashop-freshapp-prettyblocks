@@ -50,12 +50,12 @@ final class BlockLoader
      * fichiers est sensible à la casse. On retrouve donc la classe à partir des fichiers
      * présents plutôt que du nom reçu.
      */
-    public static function getBlockBeforeRendering(string $blockName, ?array $params): array
+    public static function getBlockBeforeRendering(string $blockName, ?array $params, \Context $context): array
     {
         $class = self::resolveClass(str_replace('_', '', $blockName));
         if (null !== $class && method_exists($class, 'beforeRendering')) {
             try {
-                return $class::beforeRendering($params);
+                return $class::beforeRendering($params, $context);
             } catch (\Throwable $e) {
                 \PrestaShopLogger::addLog('[freshappprettyblocks] ' . $e->getMessage());
             }

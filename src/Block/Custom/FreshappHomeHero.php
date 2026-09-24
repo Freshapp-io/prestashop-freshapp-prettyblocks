@@ -32,7 +32,7 @@ final class FreshappHomeHero
             'icon' => 'SparklesIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/home/hero.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/home/hero.tpl',
             ],
             'config' => [
                 'fields' => [

@@ -25,7 +25,7 @@ final class FreshSeparator
             'icon' => 'MinusIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/separator.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/separator.tpl',
             ],
             'config' => [
                 'fields' => [

@@ -5,7 +5,7 @@
  * @license Proprietary - see LICENSE file
  *}
 {if $block.states}
-<section class="fa-home-reassurance {$block.classes}{if $block.settings.default.force_full_width} _force-full{/if}" {$block.styles} aria-labelledby="fa-reassurance-{$block.id_prettyblocks|intval}">
+<section class="fa-home-reassurance {$block.classes|escape:'html':'UTF-8'}{if $block.settings.default.force_full_width} _force-full{/if}" {$block.styles|escape:'html':'UTF-8'} aria-labelledby="fa-reassurance-{$block.id_prettyblocks|intval}">
   <div class="{if $block.settings.default.container}container{/if}">
     <h2 id="fa-reassurance-{$block.id_prettyblocks|intval}" class="visually-hidden">{$block.settings.title|default:''|escape:'html':'UTF-8'}</h2>
     <ul class="fa-home-reassurance__list">

@@ -25,7 +25,7 @@ final class FreshGoogleMap
             'icon' => 'MapPinIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/googlemap.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/googlemap.tpl',
             ],
             'config' => [
                 'fields' => [

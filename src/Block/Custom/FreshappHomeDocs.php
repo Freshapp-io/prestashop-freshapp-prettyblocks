@@ -32,7 +32,7 @@ final class FreshappHomeDocs
             'icon' => 'BookOpenIcon',
             'need_reload' => true,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/home/docs.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/home/docs.tpl',
             ],
             'config' => [
                 'fields' => [
@@ -50,10 +50,9 @@ final class FreshappHomeDocs
         ];
     }
 
-    public static function beforeRendering(?array $params): array
+    public static function beforeRendering(?array $params, \Context $context): array
     {
         $settings = (array) ($params['settings'] ?? []);
-        $context = \Context::getContext();
         $idLang = (int) $context->language->id;
         $idCmsCategory = (int) ($settings['cms_category_id'] ?? 2);
         $prefixe = (string) ($settings['strip_prefix'] ?? '');

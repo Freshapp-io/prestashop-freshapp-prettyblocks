@@ -9,9 +9,9 @@
 {assign var="sep_align" value=$block.settings.align|default:'center'}
 <div
   {if $sep_id}id="{$sep_id|escape:'html':'UTF-8'}"{/if}
-  class="fa-separator-wrap {$block.classes}{if $block.settings.default.container} container{/if}{if $block.settings.default.force_full_width} _force-full{/if}{if $sep_class} {$sep_class|escape:'html':'UTF-8'}{/if}"
+  class="fa-separator-wrap {$block.classes|escape:'html':'UTF-8'}{if $block.settings.default.container} container{/if}{if $block.settings.default.force_full_width} _force-full{/if}{if $sep_class} {$sep_class|escape:'html':'UTF-8'}{/if}"
   style="text-align:{$sep_align|escape:'html':'UTF-8'};"
-  {$block.styles}
+  {$block.styles|escape:'html':'UTF-8'}
 >
   <hr class="fa-separator" style="
     display: inline-block;

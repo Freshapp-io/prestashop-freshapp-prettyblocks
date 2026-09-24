@@ -26,7 +26,7 @@ final class FreshTabs
             'need_reload' => false,
             'insert_default_values' => true,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/tabs.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/tabs.tpl',
             ],
             'config' => [
                 'fields' => [

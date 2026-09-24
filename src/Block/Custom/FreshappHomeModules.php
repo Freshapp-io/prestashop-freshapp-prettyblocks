@@ -37,7 +37,7 @@ final class FreshappHomeModules
             'icon' => 'CubeIcon',
             'need_reload' => true,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/home/modules.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/home/modules.tpl',
             ],
             'config' => [
                 'fields' => [
@@ -64,10 +64,9 @@ final class FreshappHomeModules
         ];
     }
 
-    public static function beforeRendering(?array $params): array
+    public static function beforeRendering(?array $params, \Context $context): array
     {
         $settings = (array) ($params['settings'] ?? []);
-        $context = \Context::getContext();
         $idLang = (int) $context->language->id;
         $idCategory = (int) ($settings['category_id'] ?? 3);
         $limite = max(1, min(48, (int) ($settings['limit'] ?? 12)));

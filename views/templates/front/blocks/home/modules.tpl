@@ -5,7 +5,7 @@
  * @license Proprietary - see LICENSE file
  *}
 {if $block.extra.modules}
-<section class="fa-home-section fa-home-modules {$block.classes}{if $block.settings.default.force_full_width} _force-full{/if}" {$block.styles}>
+<section class="fa-home-section fa-home-modules {$block.classes|escape:'html':'UTF-8'}{if $block.settings.default.force_full_width} _force-full{/if}" {$block.styles|escape:'html':'UTF-8'}>
   <div class="{if $block.settings.default.container}container{/if}">
     <h2 class="fa-home-section__title">{$block.settings.title|escape:'html':'UTF-8'}</h2>
     {if $block.settings.intro}<p class="fa-home-section__intro">{$block.settings.intro|escape:'html':'UTF-8'}</p>{/if}

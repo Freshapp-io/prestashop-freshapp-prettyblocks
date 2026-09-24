@@ -25,7 +25,7 @@ final class FreshHtmlCode
             'icon' => 'CodeBracketIcon',
             'need_reload' => true,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/htmlcode.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/htmlcode.tpl',
             ],
             'config' => [
                 'fields' => [

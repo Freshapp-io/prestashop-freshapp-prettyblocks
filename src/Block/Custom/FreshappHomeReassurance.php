@@ -31,7 +31,7 @@ final class FreshappHomeReassurance
             'icon' => 'ShieldCheckIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/home/reassurance.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/home/reassurance.tpl',
             ],
             'config' => [
                 'fields' => [

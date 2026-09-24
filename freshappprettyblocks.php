@@ -24,7 +24,7 @@ class Freshappprettyblocks extends Module
     {
         $this->name = 'freshappprettyblocks';
         $this->tab = 'administration';
-        $this->version = '1.3.1';
+        $this->version = '1.3.2';
         $this->author = 'FreshApp.io';
         $this->dependencies = ['prettyblocks'];
 
@@ -38,6 +38,32 @@ class Freshappprettyblocks extends Module
         );
 
         $this->ps_versions_compliancy = ['min' => '1.7.8.0', 'max' => '9.99.99'];
+
+        $this->registerSmartyFunction();
+    }
+
+    /**
+     * Fonction Smarty {fa_pb_html} (voir Html). Le constructeur d'un module s'exécute plusieurs
+     * fois par requête et Smarty lève une exception à la seconde inscription d'un même nom : on
+     * teste d'abord, et rien ne doit jamais empêcher le module de se charger.
+     */
+    private function registerSmartyFunction(): void
+    {
+        $smarty = $this->context->smarty ?? null;
+        if (!is_object($smarty) || !method_exists($smarty, 'registerPlugin') || isset($smarty->registered_plugins['function']['fa_pb_html'])) {
+            return;
+        }
+        try {
+            $smarty->registerPlugin('function', 'fa_pb_html', [FreshAppPrettyBlocks\Module\Html::class, 'render']);
+        } catch (Throwable $e) {
+            PrestaShopLogger::addLog('[freshappprettyblocks] ' . $e->getMessage());
+        }
+    }
+
+    /** Module::$context est protégé : relais pour les classes du module. */
+    public function contexte(): Context
+    {
+        return $this->context;
     }
 
     public function __call(string $name, array $arguments)
@@ -51,6 +77,7 @@ class Freshappprettyblocks extends Module
                 return BlockLoader::getBlockBeforeRendering(
                     str_replace('hookBeforeRendering', '', $name),
                     $arguments[0] ?? null,
+                    $this->context,
                 );
             }
         } catch (Throwable $e) {

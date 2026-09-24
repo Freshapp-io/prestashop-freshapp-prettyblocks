@@ -19,10 +19,7 @@ class Hook
 {
     private static ?self $instance = null;
 
-    private string $hook_name;
     private \Context $context;
-    private array $params;
-    private \Freshappprettyblocks $module;
 
     private function __construct()
     {
@@ -33,10 +30,7 @@ class Hook
         if (is_null(self::$instance)) {
             self::$instance = new self();
         }
-        self::$instance->hook_name = $hook_name;
-        self::$instance->module = $module;
-        self::$instance->params = $params;
-        self::$instance->context = \Context::getContext();
+        self::$instance->context = $module->contexte();
 
         return self::$instance->$hook_name($params);
     }

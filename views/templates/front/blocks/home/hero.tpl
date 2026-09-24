@@ -6,12 +6,12 @@
  *}
 {assign var="fa_tag" value=$block.settings.heading|default:'h1'}
 {if $fa_tag != 'h2'}{assign var="fa_tag" value='h1'}{/if}
-<section class="fa-home-hero {$block.classes}{if $block.settings.default.force_full_width} _force-full{/if}" {$block.styles}>
+<section class="fa-home-hero {$block.classes|escape:'html':'UTF-8'}{if $block.settings.default.force_full_width} _force-full{/if}" {$block.styles|escape:'html':'UTF-8'}>
   <div class="fa-home-hero__inner{if $block.settings.default.container} container{/if}">
     {if $block.settings.kicker}
       <p class="fa-home-hero__kicker">{$block.settings.kicker|escape:'html':'UTF-8'}</p>
     {/if}
-    <{$fa_tag} class="fa-home-hero__title">{$block.settings.title|escape:'html':'UTF-8'}</{$fa_tag}>
+    <{$fa_tag|escape:'html':'UTF-8'} class="fa-home-hero__title">{$block.settings.title|escape:'html':'UTF-8'}</{$fa_tag|escape:'html':'UTF-8'}>
     {if $block.settings.subtitle}
       <p class="fa-home-hero__subtitle">{$block.settings.subtitle|escape:'html':'UTF-8'}</p>
     {/if}

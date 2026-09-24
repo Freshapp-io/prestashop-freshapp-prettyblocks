@@ -11,8 +11,8 @@
 {assign var="gm_height"  value=$block.settings.height|default:'400px'}
 <div
   {if $gm_id}id="{$gm_id|escape:'html':'UTF-8'}"{/if}
-  class="fa-googlemap-wrap {$block.classes}{if $block.settings.default.container} container{/if}{if $block.settings.default.force_full_width} _force-full{/if}{if $gm_class} {$gm_class|escape:'html':'UTF-8'}{/if}"
-  {$block.styles}
+  class="fa-googlemap-wrap {$block.classes|escape:'html':'UTF-8'}{if $block.settings.default.container} container{/if}{if $block.settings.default.force_full_width} _force-full{/if}{if $gm_class} {$gm_class|escape:'html':'UTF-8'}{/if}"
+  {$block.styles|escape:'html':'UTF-8'}
 >
   <iframe
     class="fa-googlemap"

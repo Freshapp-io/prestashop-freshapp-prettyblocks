@@ -32,7 +32,7 @@ final class FreshappHomeText
             'icon' => 'DocumentTextIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/home/text.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/home/text.tpl',
             ],
             'config' => [
                 'fields' => [

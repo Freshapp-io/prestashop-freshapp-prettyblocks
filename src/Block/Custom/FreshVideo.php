@@ -25,7 +25,7 @@ final class FreshVideo
             'icon' => 'VideoCameraIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/video.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/video.tpl',
             ],
             'config' => [
                 'fields' => [
@@ -85,5 +85,53 @@ final class FreshVideo
                 ],
             ],
         ];
+    }
+
+    /**
+     * URL d'intégration de la vidéo, calculée ici plutôt que dans le gabarit : les expressions
+     * régulières d'extraction de l'identifiant y étaient illisibles, et les paramètres de l'URL
+     * (lecture automatique, sourdine, boucle) y étaient échappés deux fois.
+     *
+     * @param array<string, mixed>|null $params
+     *
+     * @return array{embed_url: string}
+     */
+    public static function beforeRendering(?array $params, \Context $context): array
+    {
+        $settings = (array) ($params['settings'] ?? []);
+        $source = (string) ($settings['source'] ?? 'youtube');
+        $url = (string) ($settings['url'] ?? '');
+        $options = [];
+
+        switch ($source) {
+            case 'youtube':
+                $base = 'https://www.youtube.com/embed/'
+                    . preg_replace('#.*(?:youtu\.be/|v/|u/\w/|embed/|shorts/|watch\?v=)([^\#&\?]*).*#', '$1', $url);
+                $options = ['autoplay' => 'autoplay', 'muted' => 'mute', 'loop' => 'loop'];
+                break;
+            case 'vimeo':
+                $base = 'https://player.vimeo.com/video/'
+                    . preg_replace('#.*vimeo\.com/(?:video/)?(\d+).*#', '$1', $url);
+                $options = ['autoplay' => 'autoplay', 'muted' => 'muted', 'loop' => 'loop'];
+                break;
+            case 'dailymotion':
+                $base = 'https://www.dailymotion.com/embed/video/'
+                    . preg_replace('#.*dailymotion\.com/(?:video/)?([a-zA-Z0-9]+).*#', '$1', $url);
+                $options = ['autoplay' => 'autoplay', 'muted' => 'mute', 'loop' => 'loop'];
+                break;
+            case 'peertube':
+                return ['embed_url' => str_replace('/watch/', '/embed/', $url)];
+            default:
+                return ['embed_url' => ''];
+        }
+
+        $query = [];
+        foreach ($options as $reglage => $parametre) {
+            if (!empty($settings[$reglage])) {
+                $query[] = $parametre . '=1';
+            }
+        }
+
+        return ['embed_url' => $base . ($query ? '?' . implode('&', $query) : '')];
     }
 }

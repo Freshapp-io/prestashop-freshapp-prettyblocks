@@ -25,7 +25,7 @@ final class FreshSpacer
             'icon' => 'ArrowsUpDownIcon',
             'need_reload' => false,
             'templates' => [
-                'default' => 'module:freshappprettyblocks/views/templates/blocks/spacer.tpl',
+                'default' => 'module:freshappprettyblocks/views/templates/front/blocks/spacer.tpl',
             ],
             'config' => [
                 'fields' => [
