@@ -6,6 +6,7 @@ formulée côté marchand : le bloc d'une version se colle tel quel dans le cham
 
 ## 1.3.2 — 2026-09-24
 
+- Icône du module (menu du back-office, onglet du navigateur) : elle affichait encore le colibri générique de la marque au lieu de son propre pictogramme, corrigée.
 - Bloc « Code HTML » : il ne s'affichait pas du tout (erreur dans son gabarit) ; il fonctionne maintenant.
 - Bloc « Vidéo » : la lecture automatique, la sourdine et la boucle sont désormais toutes prises en compte (seul le premier réglage l'était).
 - Le texte riche des blocs « Texte » et « Onglets » est nettoyé comme celui des pages CMS.
