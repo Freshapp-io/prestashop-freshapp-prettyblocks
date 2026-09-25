@@ -2,7 +2,7 @@
  * FreshApp PrettyBlocks
  * @author FreshApp.io
  * @copyright 2026 FreshApp.io
- * @license Proprietary - see LICENSE file
+ * @license GPL-3.0-or-later
  *}
 {assign var="fa_tag" value=$block.settings.heading|default:'h1'}
 {if $fa_tag != 'h2'}{assign var="fa_tag" value='h1'}{/if}

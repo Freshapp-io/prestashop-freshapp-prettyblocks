@@ -4,6 +4,10 @@ Une section par version, la plus récente en haut. Chaque puce est une ligne aut
 formulée côté marchand : le bloc d'une version se colle tel quel dans le champ
 « changelog » de freshappprestadownload (une ligne par changement, sans le tiret).
 
+## 1.3.3 — 2026-09-25
+
+- Passage en licence GPL-3.0-or-later : le code source de ce module gratuit est publié sur GitHub. Le fichier LICENSE et l'en-tête de chaque fichier sont mis à jour en conséquence — aucun changement de fonctionnement.
+
 ## 1.3.2 — 2026-09-24
 
 - Icône du module (menu du back-office, onglet du navigateur) : elle affichait encore le colibri générique de la marque au lieu de son propre pictogramme, corrigée.

@@ -5,7 +5,7 @@
  *
  * @author    FreshApp.io
  * @copyright 2026 FreshApp.io
- * @license   proprietary
+ * @license   GPL-3.0-or-later
  */
 
 use FreshAppPrettyBlocks\Block\BlockLoader;
@@ -24,7 +24,7 @@ class Freshappprettyblocks extends Module
     {
         $this->name = 'freshappprettyblocks';
         $this->tab = 'administration';
-        $this->version = '1.3.2';
+        $this->version = '1.3.3';
         $this->author = 'FreshApp.io';
         $this->dependencies = ['prettyblocks'];
 

@@ -2,7 +2,7 @@
  * FreshApp PrettyBlocks
  * @author FreshApp.io
  * @copyright 2026 FreshApp.io
- * @license Proprietary - see LICENSE file
+ * @license GPL-3.0-or-later
  *}
 {if $block.states}
 <section class="fa-home-reassurance {$block.classes|escape:'html':'UTF-8'}{if $block.settings.default.force_full_width} _force-full{/if}" {$block.styles|escape:'html':'UTF-8'} aria-labelledby="fa-reassurance-{$block.id_prettyblocks|intval}">

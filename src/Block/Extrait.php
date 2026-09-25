@@ -4,7 +4,7 @@
  *
  * @author    FreshApp.io
  * @copyright 2026 FreshApp.io
- * @license   Proprietary - see LICENSE file
+ * @license   GPL-3.0-or-later
  */
 
 namespace FreshAppPrettyBlocks\Block;

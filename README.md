@@ -33,3 +33,7 @@ machinerie Composer.
 ## Hooks
 
 `ActionRegisterBlock`, `displayHeader`.
+
+## Licence
+
+GPL-3.0-or-later — voir le fichier [LICENSE](LICENSE).
